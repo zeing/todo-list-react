@@ -8,23 +8,20 @@ class Item extends Component {
     }
 
     render() {
-        const listsProp = this.props.lists ? this.props.lists.filter( list =>  !list.isCompleted) : [];
-        if(listsProp.length) {
-            const list = listsProp.map(list =>
-                <ListItem list={list}></ListItem>
+        const lists = this.props.lists;
+        const onToggleListItem = this.props.onToggleListItem;
+        const list = lists && lists.map((list,index)=>
+                <ListItem onToggleListItem={onToggleListItem} list={list} id={index} key={index}></ListItem>
             );
-            return (
-                <ul className="list-reset">
-                    {
-                        list
-                    }
-                </ul>
-            );
-        } else {
-            return '';
-        }
-
+        return (
+            <ul className="list-reset">
+                {
+                    list
+                }
+            </ul>
+        )
     }
+
     componentDidMount() {
     }
 }

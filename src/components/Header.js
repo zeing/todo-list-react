@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import ListItem from './ListItem';
 
 class Item extends Component {
-    state  = {
+    constructor(props) {
+        super(props);
     }
 
     render() {
+        const onCreateNewItem = this.props.onCreateNewItem;
         return (
             <div className="flex justify-between w-full">
                 <h1>New List</h1>
-                <button className="btn btn-blue">
+                <button onClick={onCreateNewItem} className="btn btn-blue">
                     +
                 </button>
             </div>
