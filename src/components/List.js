@@ -10,8 +10,9 @@ class Item extends Component {
     render() {
         const lists = this.props.lists;
         const onToggleListItem = this.props.onToggleListItem;
+        const onEditTask = this.props.onEditTask;
         const list = lists && lists.map((list,index)=>
-                <ListItem onToggleListItem={onToggleListItem} list={list} id={index} key={index}></ListItem>
+                <ListItem onToggleListItem={onToggleListItem} onEditTask={onEditTask} list={list} id={index} key={index}></ListItem>
             );
         return (
             <ul className="list-reset">

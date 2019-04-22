@@ -42,14 +42,32 @@ class App extends Component {
     this.setState({lists : [...this.state.lists, newList]});
   };
 
+  // onToggleListItem = (event) => {
+  //   const target = event.target;
+  //   const valueCheck = target.type === 'checkbox' ? target.checked : null;
+  //   const value =  target.type !== 'checkbox' ? target.value : null;
+  //   const id = target.id;
+  //   const lists = this.state.lists;
+  //   if(value !== null) lists[id].name = value;
+  //   if(valueCheck !== null) lists[id].isCompleted = valueCheck;
+  //   this.setState({ lists: lists })
+  // };
+
   onToggleListItem = (event) => {
     const target = event.target;
-    const valueCheck = target.type === 'checkbox' ? target.checked : null;
-    const value =  target.type !== 'checkbox' ? target.value : null;
+    const value = target.checked;
     const id = target.id;
     const lists = this.state.lists;
-    if(value !== null) lists[id].name = value;
-    if(valueCheck !== null) lists[id].isCompleted = valueCheck;
+    lists[id].isCompleted = value;
+    this.setState({ lists: lists })
+  };
+
+  onEditTask = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const id = target.id;
+    const lists = this.state.lists;
+    lists[id].name = value;
     this.setState({ lists: lists })
   };
 
@@ -64,10 +82,10 @@ class App extends Component {
           <Header onCreateNewItem={this.onCreateNewItem}/>
         </div>
         <div className="w-1/3">
-          <CompletedSection onToggleListItem={this.onToggleListItem} onToggleCompletedList={this.onToggleCompletedList} lists={completedList} showCompletedList={this.state.showCompletedList}/>
+          <CompletedSection onToggleListItem={this.onToggleListItem} onToggleCompletedList={this.onToggleCompletedList} onEditTask={this.onEditTask} lists={completedList} showCompletedList={this.state.showCompletedList}/>
         </div>
         <div className="w-1/3">
-          <List onToggleListItem={this.onToggleListItem} lists={inCompletedList}/>
+          <List onToggleListItem={this.onToggleListItem} onEditTask={this.onEditTask} lists={inCompletedList}/>
         </div>
       </div>
     );
