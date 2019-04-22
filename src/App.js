@@ -84,14 +84,14 @@ class App extends Component {
     const inCompletedList =  lists.filter( list =>  !list.isCompleted)
     const completedList = lists.filter( list =>  list.isCompleted);
     return (
-      <div className="flex flex-col justify-center items-center w-full h-full">
-        <div className="w-1/3 mb-4">
+      <div className="flex flex-col justify-center items-center w-full h-full px-4">
+        <div className="w-full md:w-1/3 mb-4">
           <Header onCreateNewItem={this.onCreateNewItem}/>
         </div>
-        <div className="w-1/3">
+        <div className="w-full md:w-1/3">
           <CompletedSection onToggleListItem={this.onToggleListItem} onDeleteTask={this.onDeleteTask} onToggleCompletedList={this.onToggleCompletedList} onEditTask={this.onEditTask} lists={completedList} showCompletedList={this.state.showCompletedList}/>
         </div>
-        <div className="w-1/3">
+        <div className="w-full md:w-1/3">
           <List onToggleListItem={this.onToggleListItem}  onDeleteTask={this.onDeleteTask} onEditTask={this.onEditTask} lists={inCompletedList}/>
         </div>
       </div>
