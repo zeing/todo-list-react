@@ -71,6 +71,14 @@ class App extends Component {
     this.setState({ lists: lists })
   };
 
+  onDeleteTask = (event) => {
+    // const target = event.target;
+    // const id = target.id;
+    // const lists = this.state.lists;
+    // lists[id].name = value;
+    // this.setState({ lists: lists })
+  };
+
   render() {
     this.state.lists.forEach( (list, index ) => { list.id = index});
     const lists = this.state.lists;
