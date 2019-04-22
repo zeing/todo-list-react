@@ -42,6 +42,7 @@ class App extends Component {
     this.setState({lists : [...this.state.lists, newList]});
   };
 
+  //multi change data
   // onToggleListItem = (event) => {
   //   const target = event.target;
   //   const valueCheck = target.type === 'checkbox' ? target.checked : null;
@@ -71,12 +72,10 @@ class App extends Component {
     this.setState({ lists: lists })
   };
 
-  onDeleteTask = (event) => {
-    // const target = event.target;
-    // const id = target.id;
-    // const lists = this.state.lists;
-    // lists[id].name = value;
-    // this.setState({ lists: lists })
+  onDeleteTask = (id) => {
+    const lists = this.state.lists;
+    lists.splice(id,1);
+    this.setState({ lists: lists })
   };
 
   render() {
@@ -90,10 +89,10 @@ class App extends Component {
           <Header onCreateNewItem={this.onCreateNewItem}/>
         </div>
         <div className="w-1/3">
-          <CompletedSection onToggleListItem={this.onToggleListItem} onToggleCompletedList={this.onToggleCompletedList} onEditTask={this.onEditTask} lists={completedList} showCompletedList={this.state.showCompletedList}/>
+          <CompletedSection onToggleListItem={this.onToggleListItem} onDeleteTask={this.onDeleteTask} onToggleCompletedList={this.onToggleCompletedList} onEditTask={this.onEditTask} lists={completedList} showCompletedList={this.state.showCompletedList}/>
         </div>
         <div className="w-1/3">
-          <List onToggleListItem={this.onToggleListItem} onEditTask={this.onEditTask} lists={inCompletedList}/>
+          <List onToggleListItem={this.onToggleListItem}  onDeleteTask={this.onDeleteTask} onEditTask={this.onEditTask} lists={inCompletedList}/>
         </div>
       </div>
     );

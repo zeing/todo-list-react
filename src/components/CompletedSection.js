@@ -12,11 +12,12 @@ class CompletedSection extends Component {
         const lists = this.props.lists;
         const onToggleCompletedList = this.props.onToggleCompletedList;
         const onToggleListItem = this.props.onToggleListItem;
+        const onDeleteTask = this.props.onDeleteTask;
         const onEditTask = this.props.onEditTask;
         const showCompletedList = this.props.showCompletedList;
         let list = '';
         if(showCompletedList) {
-            list = <List onToggleListItem={onToggleListItem} onEditTask={onEditTask} lists={lists}/>
+            list = <List onToggleListItem={onToggleListItem} onDeleteTask={onDeleteTask} onEditTask={onEditTask} lists={lists}/>
 
         }
 
