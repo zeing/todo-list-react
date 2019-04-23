@@ -25,7 +25,7 @@ class CompletedSection extends Component {
             <div className="flex flex-col w-full">
                 <div className="flex justify-between w-full">
                     <span>{lists.length} Completed</span>
-                    <button onClick={onToggleCompletedList}>Hide</button>
+                    <button onClick={onToggleCompletedList}>{showCompletedList? 'Hide' : 'Show'}</button>
                 </div>
                 <div>
                     <ul className="list-reset">
