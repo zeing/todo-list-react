@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import './App.css';
-import './index.css';
 import List from './components/List'
 import Header from './components/Header'
 import CompletedSection from './components/CompletedSection'
